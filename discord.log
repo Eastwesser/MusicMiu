@@ -1,0 +1,9 @@
+[2024-05-03 20:25:45] [INFO    ] discord.client: logging in using static token
+[2024-05-03 20:25:46] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 6932dfa071733f96b44ef1d16c9cef43).
+[2024-05-03 20:28:21] [INFO    ] discord.client: logging in using static token
+[2024-05-03 20:28:22] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: cec65884a03bd80637a73edcafef4cf0).
+[2024-05-03 20:43:32] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-03 20:43:32] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-03 20:43:32] [DEBUG   ] discord.client: on_message has successfully been registered as an event
+[2024-05-03 20:43:32] [INFO    ] discord.client: logging in using static token
+[2024-05-03 20:43:33] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ed87a96e41493b823c91bcd28b17a8fb).

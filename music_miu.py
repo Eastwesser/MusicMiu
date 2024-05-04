@@ -18,7 +18,11 @@ handler = logging.handlers.RotatingFileHandler(
     backupCount=5,
 )
 dt_fmt = '%Y-%m-%d %H:%M:%S'
-formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
+formatter = logging.Formatter(
+    '[{asctime}] [{levelname:<8}] {name}: {message}',
+    dt_fmt,
+    style='{'
+)
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
@@ -37,7 +41,10 @@ rutube_base_url = 'https://rutube.ru/'
 rutube_watch_url = rutube_base_url + 'video/'
 
 # Initialize Discord bot
-client = commands.Bot(command_prefix=".", intents=intents)
+client = commands.Bot(
+    command_prefix=".",
+    intents=intents
+)
 queues = {}
 voice_clients = {}
 
@@ -67,17 +74,21 @@ async def play(ctx, *, link):
             link = rutube_watch_url + video_id
 
         loop = asyncio.get_event_loop()
-        data = await loop.run_in_executor(None, lambda: yt_dlp.YoutubeDL({}).extract_info(link, download=False))
+        data = await loop.run_in_executor(
+            None,
+            lambda: yt_dlp.YoutubeDL({}).extract_info(
+                link,
+                download=False
+            )
+        )
 
         song = data['url']
 
-        # ffpyplayer processing
-        player = MediaPlayer(song)
-        player.set_volume(0.25)
-        player.toggle_pause()
-
-        voice_clients[ctx.guild.id].play(player.to_audiostream(),
-                                         after=lambda e: asyncio.run_coroutine_threadsafe(play_next(ctx), client.loop))
+        # Use FFmpegOpusAudio directly to play the song
+        voice_clients[ctx.guild.id].play(
+            discord.FFmpegOpusAudio(song, executable="ffmpeg.exe", options="-vn"),
+            after=lambda e: asyncio.run_coroutine_threadsafe(play_next(ctx), client.loop)
+        )
     except Exception as e:
         print(e)
 

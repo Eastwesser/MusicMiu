@@ -179,3 +179,24 @@ discord.ext.commands.errors.CommandNotFound: Command "hello" is not found
 [2024-05-04 23:18:35] [INFO    ] discord.voice_client: Connecting to voice...
 [2024-05-04 23:18:35] [INFO    ] discord.voice_client: Starting voice handshake... (connection attempt 1)
 [2024-05-04 23:18:35] [INFO    ] discord.voice_client: Voice handshake complete. Endpoint found rotterdam7099.discord.media
+[2024-05-04 23:21:37] [INFO    ] discord.voice_client: The voice handshake is being terminated for Channel ID 681554472857632842 (Guild ID 681554472358379731)
+[2024-05-04 23:21:41] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 23:21:41] [INFO    ] discord.client: logging in using static token
+[2024-05-04 23:21:42] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7fdade2f48635844ef89ea58daf53c3b).
+[2024-05-04 23:22:06] [INFO    ] discord.voice_client: Connecting to voice...
+[2024-05-04 23:22:06] [INFO    ] discord.voice_client: Starting voice handshake... (connection attempt 1)
+[2024-05-04 23:22:06] [INFO    ] discord.voice_client: Voice handshake complete. Endpoint found rotterdam7099.discord.media
+[2024-05-04 23:23:01] [INFO    ] discord.voice_client: The voice handshake is being terminated for Channel ID 681554472857632842 (Guild ID 681554472358379731)
+[2024-05-04 23:23:03] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 23:23:03] [INFO    ] discord.client: logging in using static token
+[2024-05-04 23:23:04] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7db374d2826744a3f539e4a687ae3f57).
+[2024-05-04 23:23:12] [INFO    ] discord.voice_client: Connecting to voice...
+[2024-05-04 23:23:12] [INFO    ] discord.voice_client: Starting voice handshake... (connection attempt 1)
+[2024-05-04 23:23:12] [INFO    ] discord.voice_client: Voice handshake complete. Endpoint found rotterdam7099.discord.media
+[2024-05-04 23:26:06] [INFO    ] discord.voice_client: The voice handshake is being terminated for Channel ID 681554472857632842 (Guild ID 681554472358379731)
+[2024-05-04 23:28:47] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 23:28:47] [INFO    ] discord.client: logging in using static token
+[2024-05-04 23:28:48] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7cab0bd73be54901fcc3ce81822bbbe9).
+[2024-05-04 23:29:02] [INFO    ] discord.voice_client: Connecting to voice...
+[2024-05-04 23:29:02] [INFO    ] discord.voice_client: Starting voice handshake... (connection attempt 1)
+[2024-05-04 23:29:02] [INFO    ] discord.voice_client: Voice handshake complete. Endpoint found rotterdam7099.discord.media

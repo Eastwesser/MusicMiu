@@ -5,7 +5,6 @@ import asyncio
 import yt_dlp
 from dotenv import load_dotenv
 import logging.handlers
-from ffpyplayer.player import MediaPlayer
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -36,11 +35,9 @@ if discord_token is None:
 intents = discord.Intents.default()
 intents.message_content = True
 
-# RuTube base URLs
 rutube_base_url = 'https://rutube.ru/'
 rutube_watch_url = rutube_base_url + 'video/'
 
-# Initialize Discord bot
 client = commands.Bot(
     command_prefix=".",
     intents=intents
@@ -49,13 +46,11 @@ queues = {}
 voice_clients = {}
 
 
-# Event: Bot is ready
 @client.event
 async def on_ready():
     print(f'{client.user} is now jamming')
 
 
-# Command: Play music from RuTube
 @client.command(name="play")
 async def play(ctx, *, link):
     if ctx.author.voice is None or ctx.author.voice.channel is None:
@@ -84,7 +79,6 @@ async def play(ctx, *, link):
 
         song = data['url']
 
-        # Use FFmpegOpusAudio directly to play the song
         voice_clients[ctx.guild.id].play(
             discord.FFmpegOpusAudio(song, executable="ffmpeg.exe", options="-vn"),
             after=lambda e: asyncio.run_coroutine_threadsafe(play_next(ctx), client.loop)
@@ -99,7 +93,6 @@ async def play_next(ctx):
         await play(ctx, link=link)
 
 
-# Command: Clear the music queue
 @client.command(name="clear_queue")
 async def clear_queue(ctx):
     if ctx.guild.id in queues:
@@ -109,7 +102,6 @@ async def clear_queue(ctx):
         await ctx.send("There is no queue to clear")
 
 
-# Command: Pause the music playback
 @client.command(name="pause")
 async def pause(ctx):
     try:
@@ -118,7 +110,6 @@ async def pause(ctx):
         print(e)
 
 
-# Command: Resume the music playback
 @client.command(name="resume")
 async def resume(ctx):
     try:
@@ -127,7 +118,6 @@ async def resume(ctx):
         print(e)
 
 
-# Command: Stop the music playback
 @client.command(name="stop")
 async def stop(ctx):
     try:
@@ -139,7 +129,6 @@ async def stop(ctx):
         print(e)
 
 
-# Command: Add a song to the music queue
 @client.command(name="queue")
 async def queue(ctx, *, url):
     if ctx.guild.id not in queues:
@@ -148,5 +137,4 @@ async def queue(ctx, *, url):
     await ctx.send("Added to queue!")
 
 
-# Run the Discord bot
 client.run(discord_token)

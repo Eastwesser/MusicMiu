@@ -7,3 +7,44 @@
 [2024-05-03 20:43:32] [DEBUG   ] discord.client: on_message has successfully been registered as an event
 [2024-05-03 20:43:32] [INFO    ] discord.client: logging in using static token
 [2024-05-03 20:43:33] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ed87a96e41493b823c91bcd28b17a8fb).
+[2024-05-03 22:54:14] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-03 22:54:14] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-03 22:54:14] [DEBUG   ] discord.client: on_message has successfully been registered as an event
+[2024-05-03 22:54:14] [INFO    ] discord.client: logging in using static token
+[2024-05-03 22:54:15] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 963f08f1cb5db7d7b401b293708828cf).
+[2024-05-04 16:01:50] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 16:01:50] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 16:01:50] [DEBUG   ] discord.client: on_message has successfully been registered as an event
+[2024-05-04 16:01:50] [INFO    ] discord.client: logging in using static token
+[2024-05-04 16:01:52] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9387bd02124d4dc65f6f88894ff336c1).
+[2024-05-04 16:14:51] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 16:14:51] [DEBUG   ] discord.client: on_ready_1 has successfully been registered as an event
+[2024-05-04 16:14:51] [DEBUG   ] discord.client: on_message_1 has successfully been registered as an event
+[2024-05-04 16:14:51] [INFO    ] discord.client: logging in using static token
+[2024-05-04 16:14:52] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 47536a848a6b5c273304227f672238eb).
+[2024-05-04 16:15:59] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 16:15:59] [DEBUG   ] discord.client: on_ready_1 has successfully been registered as an event
+[2024-05-04 16:15:59] [DEBUG   ] discord.client: on_message_1 has successfully been registered as an event
+[2024-05-04 16:15:59] [INFO    ] discord.client: logging in using static token
+[2024-05-04 16:16:00] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: a18cc07a586fcc35ebbed9b42e3fed0b).
+[2024-05-04 16:16:10] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 16:16:10] [DEBUG   ] discord.client: on_ready_1 has successfully been registered as an event
+[2024-05-04 16:16:10] [DEBUG   ] discord.client: on_message_1 has successfully been registered as an event
+[2024-05-04 16:16:10] [INFO    ] discord.client: logging in using static token
+[2024-05-04 16:16:11] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 6ff1874e0ccafbedafb15a9e35bb6282).
+[2024-05-04 16:16:31] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "pause" is not found
+[2024-05-04 16:17:06] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "hello" is not found
+[2024-05-04 16:56:20] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 16:56:20] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 16:56:20] [DEBUG   ] discord.client: on_message has successfully been registered as an event
+[2024-05-04 16:56:20] [INFO    ] discord.client: logging in using static token
+[2024-05-04 16:56:21] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: cac2ea5caa2b433febc411ac222e5681).
+[2024-05-04 17:01:37] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 17:01:37] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 17:01:37] [DEBUG   ] discord.client: on_message has successfully been registered as an event
+[2024-05-04 17:01:37] [INFO    ] discord.client: logging in using static token
+[2024-05-04 17:01:38] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: c4f5e5b2a596189abc9d912a5e4bd072).
+[2024-05-04 17:45:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session c4f5e5b2a596189abc9d912a5e4bd072.
+[2024-05-04 18:17:08] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session c4f5e5b2a596189abc9d912a5e4bd072.

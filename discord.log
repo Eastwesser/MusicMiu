@@ -116,3 +116,66 @@ discord.ext.commands.errors.CommandNotFound: Command "hello" is not found
 [2024-05-04 21:23:29] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: a5dbc6566f90e7d5ef2bd8e034ae4b35).
 [2024-05-04 21:23:47] [INFO    ] discord.player: ffmpeg process 23260 has not terminated. Waiting to terminate...
 [2024-05-04 21:23:47] [INFO    ] discord.player: ffmpeg process 23260 should have terminated with a return code of 1.
+[2024-05-04 22:14:24] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 22:14:24] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 22:14:24] [INFO    ] discord.client: logging in using static token
+[2024-05-04 22:14:30] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0b139bf8f6a2a248da64abb8454f4c7c).
+[2024-05-04 22:15:11] [INFO    ] discord.player: ffmpeg process 16180 has not terminated. Waiting to terminate...
+[2024-05-04 22:15:11] [INFO    ] discord.player: ffmpeg process 16180 should have terminated with a return code of 1.
+[2024-05-04 22:16:52] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 22:16:53] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 22:16:53] [INFO    ] discord.client: logging in using static token
+[2024-05-04 22:16:54] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: bcdaf802bc8deaa65430b34ebfd6229e).
+[2024-05-04 22:17:27] [INFO    ] discord.player: ffmpeg process 20236 has not terminated. Waiting to terminate...
+[2024-05-04 22:17:27] [INFO    ] discord.player: ffmpeg process 20236 should have terminated with a return code of 1.
+[2024-05-04 22:23:29] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 22:23:29] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 22:23:29] [INFO    ] discord.client: logging in using static token
+[2024-05-04 22:23:30] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 56bfc10b209664d41dae6c1147897df1).
+[2024-05-04 22:32:57] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 22:32:57] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 22:32:57] [INFO    ] discord.client: logging in using static token
+[2024-05-04 22:32:58] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 85e2349d43f73ac9ad850bcc686a6c06).
+[2024-05-04 22:33:34] [INFO    ] discord.player: ffmpeg process 20704 has not terminated. Waiting to terminate...
+[2024-05-04 22:33:34] [INFO    ] discord.player: ffmpeg process 20704 should have terminated with a return code of 1.
+[2024-05-04 22:39:31] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 22:39:31] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 22:39:31] [INFO    ] discord.client: logging in using static token
+[2024-05-04 22:39:32] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 744ea746e7d3ce5f408d95097d76150f).
+[2024-05-04 22:39:46] [INFO    ] discord.player: ffmpeg process 21940 has not terminated. Waiting to terminate...
+[2024-05-04 22:39:46] [INFO    ] discord.player: ffmpeg process 21940 should have terminated with a return code of 1.
+[2024-05-04 22:44:50] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 22:44:50] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 22:44:50] [INFO    ] discord.client: logging in using static token
+[2024-05-04 22:44:51] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: fd4aaa95ffa212a8bba086370b7cb601).
+[2024-05-04 22:45:13] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 22:45:13] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 22:45:13] [INFO    ] discord.client: logging in using static token
+[2024-05-04 22:45:14] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: f3163e2666fe6c1adc0ebd8c74440522).
+[2024-05-04 22:45:27] [INFO    ] discord.player: ffmpeg process 20804 has not terminated. Waiting to terminate...
+[2024-05-04 22:45:27] [INFO    ] discord.player: ffmpeg process 20804 should have terminated with a return code of 1.
+[2024-05-04 22:53:15] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 22:53:15] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 22:53:15] [INFO    ] discord.client: logging in using static token
+[2024-05-04 22:53:16] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b674d491e676648d92ca0779a669efa5).
+[2024-05-04 22:59:22] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 22:59:22] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 22:59:22] [INFO    ] discord.client: logging in using static token
+[2024-05-04 22:59:24] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 441e87bbd342925622f31138e2ff3caf).
+[2024-05-04 23:00:18] [WARNING ] discord.client: PyNaCl is not installed, voice will NOT be supported
+[2024-05-04 23:00:18] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 23:00:18] [INFO    ] discord.client: logging in using static token
+[2024-05-04 23:00:20] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 2f8d99670bc42f1a1406b92a45fade70).
+[2024-05-04 23:03:27] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 23:03:27] [INFO    ] discord.client: logging in using static token
+[2024-05-04 23:03:28] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: a1776bd26ae052f0fd461b8bd5a75fc5).
+[2024-05-04 23:03:33] [INFO    ] discord.voice_client: Connecting to voice...
+[2024-05-04 23:03:33] [INFO    ] discord.voice_client: Starting voice handshake... (connection attempt 1)
+[2024-05-04 23:03:33] [INFO    ] discord.voice_client: Voice handshake complete. Endpoint found rotterdam7099.discord.media
+[2024-05-04 23:16:40] [INFO    ] discord.voice_client: The voice handshake is being terminated for Channel ID 681554472857632842 (Guild ID 681554472358379731)
+[2024-05-04 23:18:27] [DEBUG   ] discord.client: on_ready has successfully been registered as an event
+[2024-05-04 23:18:27] [INFO    ] discord.client: logging in using static token
+[2024-05-04 23:18:28] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: d51a82d80bfade40476726b6035ad80d).
+[2024-05-04 23:18:35] [INFO    ] discord.voice_client: Connecting to voice...
+[2024-05-04 23:18:35] [INFO    ] discord.voice_client: Starting voice handshake... (connection attempt 1)
+[2024-05-04 23:18:35] [INFO    ] discord.voice_client: Voice handshake complete. Endpoint found rotterdam7099.discord.media

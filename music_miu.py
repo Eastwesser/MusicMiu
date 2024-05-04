@@ -4,11 +4,8 @@ from discord.ext import commands
 import asyncio
 import yt_dlp
 from dotenv import load_dotenv
-import urllib.parse
-import urllib.request
-import re
-
 import logging.handlers
+from ffpyplayer.player import MediaPlayer
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -35,117 +32,110 @@ if discord_token is None:
 intents = discord.Intents.default()
 intents.message_content = True
 
+# RuTube base URLs
+rutube_base_url = 'https://rutube.ru/'
+rutube_watch_url = rutube_base_url + 'video/'
 
-# MUSIC BOT LOGIC ======================================================================================================
-def run_bot():
-    client = commands.Bot(command_prefix=".", intents=intents)
+# Initialize Discord bot
+client = commands.Bot(command_prefix=".", intents=intents)
+queues = {}
+voice_clients = {}
 
-    queues = {}
-    voice_clients = {}
-    youtube_base_url = 'https://www.youtube.com/'
-    youtube_results_url = youtube_base_url + 'results?'
-    youtube_watch_url = youtube_base_url + 'watch?v='
-    yt_dl_options = {"format": "bestaudio/best", "extractor_args": "youtube:player_client=web"}  # Adding extractor_args
-    ytdl = yt_dlp.YoutubeDL(yt_dl_options)
 
-    ffmpeg_path = os.path.join(
-        "C:\\Users\\altte\\OneDrive\\Desktop\\MusicMiu\\.venv",
-        "ffmpeg-2024-05-02-git-71669f2ad5-full_build",
-        "bin",
-        "ffmpeg.exe",
-    )
+# Event: Bot is ready
+@client.event
+async def on_ready():
+    print(f'{client.user} is now jamming')
 
-    @client.event
-    async def on_ready():
-        print(f'{client.user} is now jamming')
 
-    async def play_next(ctx):
-        if queues[ctx.guild.id] != []:
-            link = queues[ctx.guild.id].pop(0)
-            await play(ctx, link=link)
+# Command: Play music from RuTube
+@client.command(name="play")
+async def play(ctx, *, link):
+    if ctx.author.voice is None or ctx.author.voice.channel is None:
+        await ctx.send("You need to be in a voice channel to play music.")
+        return
 
-    @client.command(name="play")
-    async def play(ctx, *, link):
-        try:
-            voice_client = await ctx.author.voice.channel.connect()
-            voice_clients[voice_client.guild.id] = voice_client
-        except Exception as e:
-            print(e)
+    try:
+        voice_client = await ctx.author.voice.channel.connect()
+        voice_clients[voice_client.guild.id] = voice_client
+    except Exception as e:
+        print(e)
 
-        try:
-            if "www.youtube.com" not in link:
-                query_string = urllib.parse.urlencode({
-                    'search_query': link
-                })
+    try:
+        if "rutube.ru" not in link:
+            video_id = link.split('/')[-1]
+            link = rutube_watch_url + video_id
 
-                content = urllib.request.urlopen(
-                    youtube_results_url + query_string
-                )
+        loop = asyncio.get_event_loop()
+        data = await loop.run_in_executor(None, lambda: yt_dlp.YoutubeDL({}).extract_info(link, download=False))
 
-                search_results = re.findall(r'/watch\?v=(.{11})', content.read().decode())
+        song = data['url']
 
-                link = youtube_watch_url + search_results[0]
+        # ffpyplayer processing
+        player = MediaPlayer(song)
+        player.set_volume(0.25)
+        player.toggle_pause()
 
-            loop = asyncio.get_event_loop()
-            data = await loop.run_in_executor(None, lambda: ytdl.extract_info(link, download=False))
+        voice_clients[ctx.guild.id].play(player.to_audiostream(),
+                                         after=lambda e: asyncio.run_coroutine_threadsafe(play_next(ctx), client.loop))
+    except Exception as e:
+        print(e)
 
-            song = data['url']
-            ffmpeg_options = {
-                'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5',
-                'options': '-vn -filter:a "volume=0.25"'
-            }
-            player = discord.FFmpegOpusAudio(song, executable=ffmpeg_path, **ffmpeg_options)
 
-            voice_clients[ctx.guild.id].play(
-                player,
-                after=lambda e: asyncio.run_coroutine_threadsafe(play_next(ctx), client.loop))
-        except Exception as e:
-            print(e)
+async def play_next(ctx):
+    if ctx.guild.id in queues and queues[ctx.guild.id]:
+        link = queues[ctx.guild.id].pop(0)
+        await play(ctx, link=link)
 
-    @client.command(name="clear_queue")
-    async def clear_queue(ctx):
-        if ctx.guild.id in queues:
-            queues[ctx.guild.id].clear()
-            await ctx.send("Queue cleared!")
-        else:
-            await ctx.send("There is no queue to clear")
 
-    @client.command(name="pause")
-    async def pause(ctx):
-        try:
-            voice_clients[ctx.guild.id].pause()
-        except Exception as e:
-            print(e)
+# Command: Clear the music queue
+@client.command(name="clear_queue")
+async def clear_queue(ctx):
+    if ctx.guild.id in queues:
+        queues[ctx.guild.id].clear()
+        await ctx.send("Queue cleared!")
+    else:
+        await ctx.send("There is no queue to clear")
 
-    @client.command(name="resume")
-    async def resume(ctx):
-        try:
-            voice_clients[ctx.guild.id].resume()
-        except Exception as e:
-            print(e)
 
-    @client.command(name="stop")
-    async def stop(ctx):
-        try:
-            # Stop the current playing song
-            voice_clients[ctx.guild.id].stop()
+# Command: Pause the music playback
+@client.command(name="pause")
+async def pause(ctx):
+    try:
+        voice_clients[ctx.guild.id].pause()
+    except Exception as e:
+        print(e)
 
-            # Disconnect from the voice channel
-            await voice_clients[ctx.guild.id].disconnect()
 
-            # Delete the voice client entry
-            del voice_clients[ctx.guild.id]
+# Command: Resume the music playback
+@client.command(name="resume")
+async def resume(ctx):
+    try:
+        voice_clients[ctx.guild.id].resume()
+    except Exception as e:
+        print(e)
 
-            # Play the next song in the queue
-            await play_next(ctx)
-        except Exception as e:
-            print(e)
 
-    @client.command(name="queue")
-    async def queue(ctx, *, url):
-        if ctx.guild.id not in queues:
-            queues[ctx.guild.id] = []
-        queues[ctx.guild.id].append(url)
-        await ctx.send("Added to queue!")
+# Command: Stop the music playback
+@client.command(name="stop")
+async def stop(ctx):
+    try:
+        voice_clients[ctx.guild.id].stop()
+        await voice_clients[ctx.guild.id].disconnect()
+        del voice_clients[ctx.guild.id]
+        await play_next(ctx)
+    except Exception as e:
+        print(e)
 
-    client.run(discord_token)
+
+# Command: Add a song to the music queue
+@client.command(name="queue")
+async def queue(ctx, *, url):
+    if ctx.guild.id not in queues:
+        queues[ctx.guild.id] = []
+    queues[ctx.guild.id].append(url)
+    await ctx.send("Added to queue!")
+
+
+# Run the Discord bot
+client.run(discord_token)

@@ -39,7 +39,7 @@ rutube_base_url = 'https://rutube.ru/'
 rutube_watch_url = rutube_base_url + 'video/'
 
 client = commands.Bot(
-    command_prefix=".",
+    command_prefix="$",
     intents=intents
 )
 queues = {}
@@ -48,7 +48,7 @@ voice_clients = {}
 
 @client.event
 async def on_ready():
-    print(f'{client.user} is now jamming')
+    print(f'{client.user} is now singing songs, ~meow :3')
 
 
 @client.command(name="play")

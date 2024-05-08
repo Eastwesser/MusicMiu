@@ -39,7 +39,7 @@ rutube_base_url = 'https://rutube.ru/'
 rutube_watch_url = rutube_base_url + 'video/'
 
 client = commands.Bot(
-    command_prefix="$",
+    command_prefix="/",  # /play
     intents=intents
 )
 queues = {}

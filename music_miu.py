@@ -29,7 +29,7 @@ load_dotenv()
 discord_token = os.getenv('DISCORD_TOKEN')
 
 if discord_token is None:
-    print("Error: DISCORD_TOKEN environment variable is not set.")
+    print("Error: DISCORD_TOKEN environment variable is not set or deleted.")
     exit(1)
 
 intents = discord.Intents.default()

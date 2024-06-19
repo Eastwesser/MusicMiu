@@ -1,4 +1,3 @@
-# cogs/music.py
 import discord
 from discord.ext import commands
 import asyncio
@@ -23,7 +22,8 @@ class Music(commands.Cog):
             voice_client = await ctx.author.voice.channel.connect()
             self.voice_clients[voice_client.guild.id] = voice_client
         except Exception as e:
-            print(e)
+            await ctx.send(f"Error connecting to voice channel: {e}")
+            return
 
         try:
             if "rutube.ru" not in link:
@@ -42,11 +42,12 @@ class Music(commands.Cog):
             song = data['url']
 
             self.voice_clients[ctx.guild.id].play(
-                discord.FFmpegOpusAudio(song, executable="ffmpeg.exe", options="-vn"),
+                discord.FFmpegOpusAudio(song, executable="ffmpeg", options="-vn"),
                 after=lambda e: asyncio.run_coroutine_threadsafe(self.play_next(ctx), self.client.loop)
             )
+            await ctx.send(f"Now playing: {link}")
         except Exception as e:
-            print(e)
+            await ctx.send(f"Error playing song: {e}")
 
     async def play_next(self, ctx):
         if ctx.guild.id in self.queues and self.queues[ctx.guild.id]:
@@ -65,15 +66,17 @@ class Music(commands.Cog):
     async def pause(self, ctx):
         try:
             self.voice_clients[ctx.guild.id].pause()
+            await ctx.send("Playback paused")
         except Exception as e:
-            print(e)
+            await ctx.send(f"Error pausing: {e}")
 
     @commands.command(name="resume")
     async def resume(self, ctx):
         try:
             self.voice_clients[ctx.guild.id].resume()
+            await ctx.send("Playback resumed")
         except Exception as e:
-            print(e)
+            await ctx.send(f"Error resuming: {e}")
 
     @commands.command(name="stop")
     async def stop(self, ctx):
@@ -82,8 +85,9 @@ class Music(commands.Cog):
             await self.voice_clients[ctx.guild.id].disconnect()
             del self.voice_clients[ctx.guild.id]
             await self.play_next(ctx)
+            await ctx.send("Playback stopped")
         except Exception as e:
-            print(e)
+            await ctx.send(f"Error stopping: {e}")
 
     @commands.command(name="queue")
     async def queue(self, ctx, *, url):

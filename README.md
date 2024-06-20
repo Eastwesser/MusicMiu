@@ -16,7 +16,7 @@ This is a Discord bot that plays music from various sources. RuTube as an exampl
     ```
 5. Run the bot:
     ```bash
-    python bot.py
+    python music_miu_bot.py  
     ```
 
 ## Usage

@@ -4,10 +4,8 @@ from discord.ext import commands
 from utils.env_loader import load_env
 from utils.logging_config import configure_logging
 
-# Configure logging
 configure_logging()
 
-# Load environment variables
 load_env()
 
 discord_token = os.getenv('DISCORD_TOKEN')

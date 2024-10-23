@@ -1,6 +1,7 @@
 # Discord Music Bot
 
-This is a Discord bot that plays music from various sources. RuTube as an example.
+This is a Discord bot that plays music from various sources. 
+RuTube as an example. Feel free to take and upgrade it!
 
 ## Installation
 

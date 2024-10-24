@@ -25,7 +25,7 @@ client = commands.Bot(
 
 @client.event
 async def on_ready():
-    print(f'{client.user} is now singing songs, ~meow :3')
+    print(f'{client.user} is now singing songs, ~meow! :3')
 
 
 async def load_extensions():

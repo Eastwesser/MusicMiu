@@ -85,7 +85,7 @@ class Music(commands.Cog):
             await self.voice_clients[ctx.guild.id].disconnect()
             del self.voice_clients[ctx.guild.id]
             await self.play_next(ctx)
-            await ctx.send("Playback stopped")
+            await ctx.send("Your playback stopped")
         except Exception as e:
             await ctx.send(f"Error stopping: {e}")
 

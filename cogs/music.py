@@ -74,7 +74,7 @@ class Music(commands.Cog):
     async def resume(self, ctx):
         try:
             self.voice_clients[ctx.guild.id].resume()
-            await ctx.send("Playback resumed")
+            await ctx.send("Your playback resumed")
         except Exception as e:
             await ctx.send(f"Error resuming the playback: {e}")
 

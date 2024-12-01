@@ -87,7 +87,7 @@ class Music(commands.Cog):
             await self.play_next(ctx)
             await ctx.send("Your playback stopped")
         except Exception as e:
-            await ctx.send(f"Error stopping: {e}")
+            await ctx.send(f"Error while stopping: {e}")
 
     @commands.command(name="queue")
     async def queue(self, ctx, *, url):

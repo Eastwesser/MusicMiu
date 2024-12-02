@@ -76,7 +76,7 @@ class Music(commands.Cog):
             self.voice_clients[ctx.guild.id].resume()
             await ctx.send("Your playback resumed")
         except Exception as e:
-            await ctx.send(f"Error resuming the playback: {e}")
+            await ctx.send(f"An error occurred while resuming the playback: {e}")
 
     @commands.command(name="stop")
     async def stop(self, ctx):

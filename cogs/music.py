@@ -68,7 +68,7 @@ class Music(commands.Cog):
             self.voice_clients[ctx.guild.id].pause()
             await ctx.send("Playback paused")
         except Exception as e:
-            await ctx.send(f"Error pausing: {e}")
+            await ctx.send(f"Error while pausing: {e}")
 
     @commands.command(name="resume")
     async def resume(self, ctx):

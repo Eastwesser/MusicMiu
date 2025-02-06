@@ -49,6 +49,7 @@ class Music(commands.Cog):
         except Exception as e:
             await ctx.send(f"Error playing song: {e}")
 
+    @commands.command(name="play_next")
     async def play_next(self, ctx):
         if ctx.guild.id in self.queues and self.queues[ctx.guild.id]:
             link = self.queues[ctx.guild.id].pop(0)

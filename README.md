@@ -19,7 +19,6 @@ RuTube as an example. Feel free to take and upgrade it! :D
     ```bash
     python music_miu_bot.py  
     ```
-
 ## Usage
 
 - `$play <url>`: Plays music from the given URL.
